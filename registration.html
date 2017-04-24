@@ -5,25 +5,32 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <!-- LoginRadius -->
-        <script src="//hub.loginradius.com/include/js/LoginRadius.js"></script>
-        <script src="//cdn.loginradius.com/hub/prod/js/LoginRadiusRaaS.js"></script>
+		<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
     </head>
     <body>
     	<h3><a href="index.html">Home Page</a></h3>
-        <div id="registration" class="registration"></div>
+
+       <div id="registration-container"></div>
     </body>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="option.js"></script>
+
     <script type="text/javascript">
-    $SL.util.ready(function() {
-	    var raasoption = option;
-	    LoginRadiusRaaS.init(raasoption, 'registration', function(response) {
-	    	alert('Succeed, check console for more information');
-	    	console.log(response);
-	    }, function(errors) {
-	    	alert('Error, please check console');
-	    	console.log(errors);
-	    }, "registration");
-    });
+		var registration_options = {}
+		registration_options.onSuccess = function(response) {
+			//On Success
+			console.log(response);
+		};
+		registration_options.onError = function(errors) {
+			//On Errors
+			console.log(errors);
+		};
+		registration_options.container = "registration-container";
+		
+		LRObject.util.ready(function() {
+			LRObject.init("registration",registration_options);
+		})
+    
+	
     </script>
 </html>

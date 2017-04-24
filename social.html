@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,37 +7,46 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">	
 		<!-- LoginRadius -->
-		<script src="//hub.loginradius.com/include/js/LoginRadius.js"></script>
-		<script src="//cdn.loginradius.com/hub/prod/js/LoginRadiusRaaS.js"></script>
+
+		<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 	</head>
 	<body>
 		<h3><a href="index.html">Home Page</a></h3>
-		<div class="interfacecontainerdiv"></div>
-		<div class="socialcontainer" id="socialcontainer"></div>
-	
+		
+		<div id="interfacecontainerdiv" class="interfacecontainerdiv"></div>
+		<div id="sociallogin-container"></div>
+		
 		<script type="text/html" id="loginradiuscustom_tmpl">
-		    <a class="lr-provider-label" href="javascript:void(0)" onclick="return  $SL.util.openWindow('<#= Endpoint #>&is_access_token=true&callback=<#= window.location #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
-		        <h3><#=Name#></h3>
-		    </a>
+		<a class="lr-provider-label" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow('<#= Endpoint #>&callback=<#= window.location #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
+			<#=Name#>
+		</a>
 		</script>
 
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="option.js"></script>
 		<script type="text/javascript">
-			$SL.util.ready(function() {
-				var raasoption = option;
-				raasoption.templatename = "loginradiuscustom_tmpl";
-				raasoption.hashTemplate = true;
-				LoginRadiusRaaS.CustomInterface(".interfacecontainerdiv", raasoption);
-
-				LoginRadiusRaaS.init(raasoption, 'sociallogin', function(response) {
-						alert('Succeed, check console for more information');
-						console.log(response);
-					}, function(errors) {
-						alert('Error, please check console');
-						console.log(errors);
-				}, "socialcontainer");
+			var custom_interface_option = {};
+			custom_interface_option.templateName = 'loginradiuscustom_tmpl';
+			LRObject.util.ready(function() {
+			LRObject.customInterface(".interfacecontainerdiv", custom_interface_option);
 			});
+			
+			var sl_options = {};
+			sl_options.onSuccess = function(response) {
+				//On Success
+				//Here you get the access token
+				console.log(response);
+			};
+			sl_options.onError = function(errors) {
+				//On Errors
+				console.log(errors);
+			};
+			sl_options.container = "sociallogin-container";
+
+			LRObject.util.ready(function() {
+				LRObject.init('socialLogin', sl_options);
+			});
+			
 		</script>
 	</body>
 </html>
