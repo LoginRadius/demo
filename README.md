@@ -3,8 +3,8 @@
 **Required: NPM installed** (Link [here](https://nodejs.org/en/download/) to download)
 1. configure the file ``./src/utils/config.json`` to match your credentials.  **You must have every field present in that file.  If not, it could cause unexpected behaviour.**
 1. On terminal or any command prompt run:
-   1.  ``` npm install -g create-react-app ```
-   2.  ``` cd to directory ```
+   1.  ``` cd to directory ```
+   2.  ``` npm install ```
    2.  ``` npm start ```
 
 ## Noted Differences between Plain-HTML/CSS/JS & React:
