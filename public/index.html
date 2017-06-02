@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src = "https://auth.lrcontent.com/v2/LoginRadiusV2.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+      <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <title>Login Radius Demo</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+
+    <script type="text/html" id="loginradiuscustom_tmpl">
+        <a class="lr-provider-label" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow('<#= Endpoint #>&callback=<#= window.location #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
+            <#=Name#>
+        </a>
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,9 @@
+{
+  "apiKey": "<apiKey here>",
+  "apiSecret": "<apiSecret here>",
+  "appName": "<appName here>",
+  "forgotPasswordUrl": "<forgotPassword URL>",
+  "verificationUrl": "<verification URL>",
+  "sott": "<sott here>"
+}
+
