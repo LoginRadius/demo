@@ -1,9 +1,21 @@
-# demo
-Quick Demo Implementation for LoginRadius' Customer Registration Service and Social Login APIs and Front Interfaces.
+# LoginRadius Demo
 
-### Usage
+> A demo project utilizing the JS Widgets from LoginRadius for the Vue framework.
 
-1. Open option.js
-2. Fill in your LoginRadius API Key and Site Name respectively.
-3. Everything should just start working
+## Getting Started
+``` bash
+# install dependencies
+npm install
 
+# setup credentials
+goto the directory src/assets/options.js and fill in the required fields
+
+# serve with hot reload at localhost:8080
+npm run dev
+```
+
+# Features Supported
+1. Login
+2. Register
+3. Resend Email Verification
+4. Social Login

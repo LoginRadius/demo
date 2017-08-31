@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>lr-demo</title>
+    <script src="https://auth.lrcontent.com/v2/LoginRadiusV2.js"  type="text/javascript"></script>
+    <script src="src/assets/options.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+    <script type="text/html" id="loginradiuscustom_tmpl">
+      <a class="lr-provider-label" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow('<#= Endpoint #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
+        <#=Name#>
+      </a>
+    </script>
+  </body>
+</html>
