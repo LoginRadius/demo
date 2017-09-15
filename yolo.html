@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Social Login | LR User Registration</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<script defer src="https://smartlock.google.com/client"> </script>
+		<!-- LoginRadius -->
+		<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
+		<script src="LoginRadiusV2SDK.1.0.0.js" type="text/javascript"></script>
+		<script src="option.js"></script>
+	</head>
+	<body>
+		<h3><a href="index.html">Home Page</a></h3>
+
+		<p>YOLO Demo</p>
+
+
+		<script>
+		window.onSmartLockLoad = (smartlock) => {
+		console.log("smartlock loaded");
+
+	let hintResultPromise = smartlock.hint({
+		 supportedAuthMethods: [
+			 "https://accounts.google.com"
+		 ], supportedIdTokenProviders: [
+			 {
+				 uri: "https://accounts.google.com",
+				 clientId: "<<YOUR GOOGLE CLIENT ID>>"
+			 }
+		 ]
+	 });
+
+	hintResultPromise.then(
+	(credential) => {
+		// The request was successful.
+		console.log("Hint returned for: " + credential.id);
+		LoginRadiusSDK.GoogleJWT (credential.idToken, function (data) {
+							console.log(data);
+							LoginRadiusSDK.getUserProfile(function(data) {console.log(data);})
+						});
+	});
+};
+</script>
+
+
+	</body>
+</html>
