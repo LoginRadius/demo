@@ -375,7 +375,7 @@ var LoginRadiusSDK = (function () {
      */
     module.GoogleJWT = function (id_token, handle) {
         util.jsonpCall("/api/v2/access_token/googlejwt?key=" + module.getApiKey() + "&id_token=" + id_token, function (data) {
-            setBrowserStorage("token",data.access_token);
+            setBrowserStorage("LRTokenKey", data.access_token);
             handle(data);
         });
     };
