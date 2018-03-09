@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="LoginRadiusApp" class="no-js">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <base href="/">
+      <title>LoginRadius AngularJS App</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+      <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+      <link rel="stylesheet" href="app.css">
+      <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+      <script src = "https://auth.lrcontent.com/v2/LoginRadiusV2.js"></script>
+      <script type="text/html" id="loginradiuscustom_tmpl">
+         <a class="lr-provider-label" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow('<#= Endpoint #>');" title="<#= Name #>" alt="Sign in with <#=Name#>"><#=Name#></a>
+      </script>
+   </head>
+   <body  ng-controller="IndexCtrl">
+      <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+      <br/>
+      <img src="https://files.startupranking.com/startup/thumb/9775_5b4eb5782a00487d66027eae19bfd950cac7bd8a_loginradius_l.png" alt="">
+      <div id = "roots" ng-show = "flags.showLoginInput">
+         <div id="verifyemail" ng-if = "flags.EmailVerifiedSucceed">
+            <h2  align="center">
+               <a href="../index.html">Congrat! You can login now with your email</a>
+            </h2>
+         </div>
+         <ul>
+            <li>
+               <button  ng-click="load('SignUp')">Sign up</button>
+               <div id="registration-container"  ng-show="flags.showRegistration"></div>
+            </li>
+            <br>
+            <li>
+               <button ng-click="load('EmailLogin')">Email Login</button>
+               <div id="login-container" ng-show="flags.showEmailLogin"></div>
+            </li>
+            <br>
+            <li>
+               <button ng-click="load('SocialLogin')">Social Login</button>
+               <div id = "sociallogin-container" ng-show="flags.showSocialLogin">
+                  <div id="interfacecontainerdiv" class="interfacecontainerdiv"></div>
+               </div>
+            </li>
+            <br>
+            <li>
+               <button ng-click="load('ForgotPassword')">forgot password</button>
+               <div id = "forgotpassword-container" ng-show="flags.showForgotPW"></div>
+            </li>
+            <br>
+         </ul>
+      </div>
+      <div id = "resetPassword" ng-if = "flags.showReset">
+         <div id="all-login" style= "background-color: white;">
+            <div id="resetpassword-container" ></div>
+         </div>
+      </div>
+      <div id="loginProfile" ng-show = "flags.showProfilePage">
+         <div id="ur_profile" >
+            <button ng-init="flags.showChangePW = false" ng-click="flags.showChangePW = !showChangePW">Change your password</button>
+            <div id="changepassword-container" ng-show="flags.showChangePW"></div>
+            <br>
+            <br>
+            <button ng-click = "logout()">Logout</button>
+            <br>
+            <h3>My Profile</h3>
+         </div>
+         <p>
+            First Name:  {{ProfileFN}} 
+            <br>
+            Last Name:   {{ProfileLN}}
+         </p>
+      </div>
+      <script src="/bower_components/angular/angular.js"></script>
+      <script src="/bower_components/angular-route/angular-route.js"></script>
+      <script src="/app.js"></script>
+   </body>
+</html>
