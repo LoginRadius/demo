@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Home | LR User Registration</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">	
-		<!-- LoginRadius -->
-		<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
-	</head>
-	<body>
-		<a href="registration.html" class="btn btn-lg">registration</a>
-		<a href="login.html" class="btn btn-lg">login</a>
-		<a href="social.html" class="btn btn-lg">social</a>
-		<a href="email-verification.html" class="btn btn-lg">email</a>
-		<a href="forgot-password.html" class="btn btn-lg">forgot</a>
-		<a href="reset-password.html" class="btn btn-lg">reset</a>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-	</body>
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <title>Polymer Demo App</title>
+        <meta name="description" content="Demo Application">
+        <base href="/">
+        <!-- See https://goo.gl/OOhYW5 -->
+        <link rel="manifest" href="/manifest.json">
+
+        <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+        <script type="module" src="/src/polymer-demo-app.js"></script>
+
+        <!-- LoginRadius JS Interface -->
+        <script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
+        <script src="option.js"></script>
+    </head>
+    <body>
+        <polymer-demo-app></polymer-demo-app>
+        <noscript>
+            This site requires Javascript to function.
+        </noscript>
+    </body>
 </html>

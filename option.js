@@ -1,10 +1,9 @@
-
 var commonOptions = {};
 commonOptions.apiKey = "<LoginRadius API Key>";
-commonOptions.appName = "<LoginRadius Site Name>";
+commonOptions.appName = "<LoginRadius App Name>";
 commonOptions.hashTemplate= true;
-commonOptions.sott ="<Sott>";
+commonOptions.sott ="<SOTT>";
 var path = window.location.href;
-commonOptions.verificationUrl = path.replace(path.substr(path.lastIndexOf('/')), "/email-verification.html");
-commonOptions.resetPasswordUrl = path.replace(path.substr(path.lastIndexOf('/')), "/reset-password.html");
+commonOptions.verificationUrl = path.slice(0, path.lastIndexOf('/')).concat("/email-verification");
+commonOptions.resetPasswordUrl = path.slice(0, path.lastIndexOf("/")).concat("/reset-password");
 var LRObject= new LoginRadiusV2(commonOptions);
