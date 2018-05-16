@@ -1,0 +1,27 @@
+/*
+lr-blue: #0074c0
+
+*/
+
+.--display-block {
+	display: block;
+}
+
+.--display-inline {
+	display: inline;
+}
+
+.container {
+	text-align: center;
+}
+
+.link-general {
+	text-decoration: none;
+	color: #0074c0;
+	margin: 10px;
+	font-size: 21px;
+}
+
+.link-general:hover {
+	text-decoration: underline;
+}

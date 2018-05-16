@@ -1,9 +1,24 @@
-# demo
-Quick Demo Implementation for LoginRadius' Customer Registration Service and Social Login APIs and Front Interfaces.
+# LoginRadius EmberJS Demo
 
-### Usage
+![Home Image](http://docs.lrcontent.com/resources/github/banner-1544x500.png)
 
-1. Open option.js
-2. Fill in your LoginRadius API Key and Site Name respectively.
-3. Everything should just start working
+## Introduction ##
 
+LoginRadius is an Identity Management Platform that simplifies user registration while securing data. LoginRadius Platform simplifies and secures your user registration process, increases conversion with Social Login that combines 30 major social platforms, and offers a full solution with Traditional Customer Registration. You can gather a wealth of user profile data from Social Login or Traditional Customer Registration. 
+
+LoginRadius centralizes it all in one place, making it easy to manage and access. Easily integrate LoginRadius with all of your third-party applications, like MailChimp, Google Analytics, Livefyre and many more, making it easy to utilize the data you are capturing.
+
+LoginRadius helps businesses boost user engagement on their web/mobile platform, manage online identities, utilize social media for marketing, capture accurate consumer data, and get unique social insight into their customer base.
+
+Please visit [here](http://www.loginradius.com/) for more information.
+
+## Contents ##
+
+* [Demo](https://github.com/LoginRadius/demo/tree/v2-emberjs-demo): This is a simple EmberJS demo implementation utilizing LoginRadius' JS Library.
+
+## Documentation
+
+* [Configuration](www.google.com) - This document contains all of the details on how to configure this demo. 
+* [Customer Registration](http://apidocs.loginradius.com/docs/user-registration) - For everything you need to implement the full LoginRadius Customer Registration system.
+
+General documentation regarding the LoginRadius REST API and related flows can be found on the [LoginRadius API Documentations](http://apidocs.loginradius.com/) site. 
