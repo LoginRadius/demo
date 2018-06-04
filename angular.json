@@ -26,7 +26,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/LoginRadiusV2.js"
+              "bower_components/LoginRadiusV2/index.js"
             ]
           },
           "configurations": {

@@ -14,7 +14,7 @@ Please visit [here](http://www.loginradius.com/) for more information.
 
 ## Contents ##
 
-* Demo: This is a simple Angular 6 demo implementation of the LoginRadius Interfaces, showing you how to setup full customer registration along with Traditional Login, Social Login and other basic flows.
+* [Demo](https://github.com/LoginRadius/demo/tree/v2-angular4-demo): This is a simple Angular 6 demo implementation of the LoginRadius Interfaces, showing you how to setup full customer registration along with Traditional Login, Social Login and other basic flows.
 
 
 ## Documentation
