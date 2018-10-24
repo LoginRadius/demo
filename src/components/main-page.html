@@ -1,0 +1,57 @@
+<template>
+  <div id="forms-container">
+    <!-- Div for traditional login menu -->
+    <div id="${loginMenuID}" class="${MENU_CLASS_NAME}">
+        <div id="${traditionalLoginContainerID}"></div>
+        <a href="javascript:void(0)" click.trigger="forgotPasswordClicked()">Forgot Password?</a>
+        <a href="javascript:void(0)" click.trigger="createAccountClicked()">Create Account</a>
+    </div>
+
+    <div id="${loggedInViewID}" class="${MENU_CLASS_NAME}">
+      <div id="${profileContainerID}">
+        <h3>My Profile</h3>
+        <p>Email ID: ${loggedInUserEmail}</p>
+        <p>First name: ${loggedInUserFirstName}</p>
+        <p>Last name: ${loggedInUserLastName}</p>
+        <a href="javascript:void(0)" click.trigger="changePasswordClicked()">Change Password</a>
+        <a href="javascript:void(0)" click.trigger="reloadHomePage()">Log out</a>
+      </div>
+      <div id="${changePasswordMenuID}" class="${MENU_CLASS_NAME}">
+        <div id="${changePasswordContainerID}"></div>
+        <a href="javascript:void(0)" click.trigger="backToProfile()">Back to Profile</a> 
+      </div>
+    </div>
+
+    <!-- Div for forgot password menu -->
+    <div id="${forgotPasswordMenuID}" class="${MENU_CLASS_NAME}">
+        <div id="${forgotPWContainerID}"></div>
+        <a href="javascript:void(0)" click.trigger="loginClicked()">Login</a>
+        <a href="javascript:void(0)" click.trigger="createAccountClicked()">Create Account</a>
+    </div>
+
+    <!-- Div for registration menu -->
+    <div id="${registrationMenuID}" class="${MENU_CLASS_NAME}">
+      <div id="${registrationContainerID}"></div>
+      <a href="javascript:void(0)" click.trigger="forgotPasswordClicked()">Forgot Password?</a>
+      <a href="javascript:void(0)" click.trigger="loginClicked()">Login</a>
+    </div>
+
+    <!-- Div for reset password menu -->
+    <div id="${resetPWMenuID}" class="${MENU_CLASS_NAME}">
+        <div id="${resetPWContainerID}"></div>
+        <a href="javascript:void(0)" click.trigger="reloadHomePage()">Home</a>
+    </div>
+        
+  </div>
+
+    <!-- Div for social login-->
+    <div id="${socialLoginContainerID}" class="${MENU_CLASS_NAME}">
+        <div id="${interfaceContainerDivID}" class="${interfaceContainerDivID}"></div> 
+        <script type="text/html" id="${socialLoginTemplateID}">
+          <a class="lr-provider-label" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow('<#= Endpoint #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
+              <#=Name#>
+          </a>
+        </script>
+    </div>
+  </div>
+</template>

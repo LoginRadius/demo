@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <title><%- htmlWebpackPlugin.options.metadata.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>">
+    <!-- imported CSS are concatenated and added automatically -->
+    <style>
+      div > * {
+    	text-align: left;
+        width: fit-content;
+        margin: auto;
+      }
+      a {
+        margin-right: 10px;
+      }
+      #interfacecontainerdiv {
+        margin-top: 10px;
+      }
+      .menu {
+        padding: 10px;
+      }
+      form {
+        margin-bottom: 15px;
+      }
+      label {
+        margin-right: 10px;
+      }
+    </style>
+    <!-- Import the LoginRadius JS library -->
+    <script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
+  </head>
+  <body aurelia-app="main">
+    <% if (htmlWebpackPlugin.options.metadata.server) { %>
+    <!-- Webpack Dev Server reload -->
+    <script src="/webpack-dev-server.js"></script>
+    <% } %>
+  </body>
+</html>
