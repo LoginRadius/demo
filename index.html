@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Home | LR User Registration</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">	
-		<!-- LoginRadius -->
-		<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
-	</head>
-	<body>
-		<a href="registration.html" class="btn btn-lg">registration</a>
-		<a href="login.html" class="btn btn-lg">login</a>
-		<a href="social.html" class="btn btn-lg">social</a>
-		<a href="email-verification.html" class="btn btn-lg">email</a>
-		<a href="forgot-password.html" class="btn btn-lg">forgot</a>
-		<a href="reset-password.html" class="btn btn-lg">reset</a>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>LoginRadius PREACT Demo</title>
+        <script src="https://auth.lrcontent.com/v2/LoginRadiusV2.js"></script>
+        <script src="./dist/main.js" defer></script>
+    </head>
+    <body>
+        <noscript>
+            You need to enable JavaScript to run this app.
+        </noscript>
+        <div id="root"></div>
 
-	</body>
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/html" id="loginradiuscustom_tmpl">
+            <a class="lr-provider-label" href="javascript:void(0)" onclick="return <#=ObjectName#>.util.openWindow('<#= Endpoint #>&callback=<#= window.location #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
+                <#=Name#>
+            </a>
+        </script>
+    </body>
 </html>

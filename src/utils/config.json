@@ -1,0 +1,6 @@
+{
+    "apiKey": "<Your API key here.>",
+    "appName": "<Your app name here.>",
+    "sott": "Your SOTT here.",
+    "homeURL": "http://localhost:8000/"
+}  
