@@ -1,0 +1,17 @@
+<head>
+  <title>Loginradius MeteorJS Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
+</head>
+
+<body>
+  <div id="react-target"></div>
+  <div id="social">
+  </div>
+  <script type="text/html" id="loginradiuscustom_tmpl">
+    <a class="lr-provider-label" href="javascript:void(0)" onclick="return LRObject.util.openWindow('<#= Endpoint #>');" title="<#= Name #>" alt="Sign in with <#=Name#>">
+      <#=Name#>
+    </a>
+  </script>
+</body>

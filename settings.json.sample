@@ -1,0 +1,10 @@
+{
+  "LR_VALS" : {
+    "API_KEY": <your api key>,
+    "APP_NAME": <your app name>,
+    "BASE_URL": <your app url>
+  },
+  "LR_SENSITIVE_VALS": {
+    "API_SECRET": <your api secret>
+  }
+}
