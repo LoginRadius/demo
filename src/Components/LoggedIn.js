@@ -1,6 +1,3 @@
-/**
- * Created by Eric on 5/29/17.
- */
 import React, {Component} from 'react';
 import ChangePassword from '../Components/ChangePassword.js'
 import ManageEmails from '../Components/ManageEmails/ManageEmails.js'
@@ -16,7 +13,7 @@ class LoggedIn extends Component {
     }
 
     handleEventClick(event) {
-        this.state.current === event ? this.setState({current: ""}) : this.setState({current: event})
+        this.state.current === event ? this.setState({current: ""}) : this.setState({current: event});
     }
 
     toRenderHandler() {

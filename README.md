@@ -1,48 +1,32 @@
-# LoginRadius React Demo
+# LoginRadius
+
+![LoginRadius brand image](https://camo.githubusercontent.com/36413f6e558b1d47c3d677b10de2027c55ed9557/687474703a2f2f646f63732e6c72636f6e74656e742e636f6d2f7265736f75726365732f6769746875622f62616e6e65722d31353434783530302e706e67)
+
+LoginRadius is a unified **Customer Identity Management** API platform that combines 30 major social platforms into a single simplified and maintenance-free API. With LoginRadius' API, websites and mobile apps can capture user profile data, enable social login, enable social sharing, add single sign-on and implement many more features.
+
+## LoginRadius React Demo
+
+This demo shows how to use the LoginRadius JavaScript library - available through CDNs - in the context of the React framework.
+For simplicity purposes, this demo implements only some of all of the functionality available through the LoginRadius JavaScript library, including:
+ 
+- Registration
+- Login
+- Social login
+- Password reset ('forgot password')
+- Request email verification resend
+- Password change
+- Email management.
+
 ## How to Run
 **Required: NPM installed** (Link [here](https://nodejs.org/en/download/) to download)
-1. configure the file ``./src/utils/config.json`` to match your credentials.  **You must have every field present in that file.  If not, it could cause unexpected behaviour.**
-1. On terminal or any command prompt run:
+
+1. Copy ``./src/utils/config.json.example`` to ``./src/utils/config.json`` then change the key value pairs to match your credentials. You must have every field present in that file, but **leave the homeURL property unchanged.**
+2. On terminal or any command prompt run:
    1.  ``` cd to directory ```
    2.  ``` npm install ```
    2.  ``` npm start ```
 
-## Noted Differences between Plain-HTML/CSS/JS & React:
-* ### Invoking the LoginRadiusV2 Singleton:
-  
-  *  **Problem:** Since the object is imported through our index.html, it is on the "DOM" while React serves on a "Virtual DOM"
-  
-  *  **Solution**: To invoke the LoginRadiusV2 you'll need to use:
-  ``` let LRObject = window.LoginRadiusV2``` as shown in *./src/utils/getLoginObject.js* (or var if you're not in ES6)
-
-* ### Deploying the preset interfaces on the Virtual DOM:
-  * **Problem:** Writing the methods correctly, the LR interfaces do not deploy on the DOM properly (It does not deploy at all)
-
-  * **Solution**: Get rid of the ```LRObject.util.ready``` wrapper.
-
-  * **Example**:
- ``` 
-// BEFORE //
-LRObject.util.ready(function() {
-    LRObject.init('registration',registration_options);
-}
-// AFTER //
-LRObject.init('registration',registration_options);
-  ```
-  * This will not cause unexpected errors as long as you have the methods to initialize the LR options in your *componentDidMount* method
-
-* ### Deploying the Social Login Interface on the Virtual DOM:
-  * **Problem:** The Social Login Interface references a class on the DOM, the method will not be able to find "classes" on React.
-
-  * **Solution:** On the Social Login component, reference it using "className" instead of "class"
-  * **Example:**
-```
-// BEFORE //
-<div id="interfacecontainerdiv" class="interfacecontainerdiv"></div>
-// AFTER //
-<div id="interfacecontainerdiv" className="interfacecontainerdiv"></div>
-```
-
-
+## Documentation 
+For more details about this demo, please visit the [React Demo Document](https://docs.loginradius.com/api/v2/deployment/demos/react-demo).
 
 

@@ -1,6 +1,3 @@
-/**
- * Created by Eric on 5/29/17.
- */
 import React, {Component} from 'react';
 import AddEmail from './AddEmail.js'
 import RemoveEmail from './RemoveEmail.js'
@@ -23,7 +20,7 @@ class ManageEmails extends Component {
 
 
     handleEventClick(event) {
-        this.state.current === event ? this.setState({current: ""}) : this.setState({current: event})
+        this.state.current === event ? this.setState({current: ""}) : this.setState({current: event});
     }
 
 

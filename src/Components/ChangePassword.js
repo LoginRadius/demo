@@ -1,15 +1,8 @@
-/**
- * Created by Eric on 5/29/17.
- */
 import React, {Component} from 'react';
 import {getLoginObject} from '../utils/getLoginObject.js';
 import {handleError} from '../utils/handleError';
 
 class ChangePassword extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     componentDidMount() {
         let LRObject = getLoginObject();
 

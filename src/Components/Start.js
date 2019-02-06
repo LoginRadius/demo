@@ -1,6 +1,3 @@
-/**
- * Created by Eric on 5/26/17.
- */
 import React, {Component} from 'react';
 import Register from './Register.js';
 import Login from './Login.js';
@@ -51,9 +48,9 @@ class Start extends Component {
                         <br />
                         <button onClick={() => this.handleEventClick("Register")}> Register</button>
                         <br />
-                        <button onClick={() => this.handleEventClick("ForgotPassword")}> Forgot Password </button>
+                        <button onClick={() => this.handleEventClick("ForgotPassword")}> Forgot Password? </button>
                         <br />
-                        <button onClick={() => this.handleEventClick("EmailResend")}> Resend Your Email </button>
+                        <button onClick={() => this.handleEventClick("EmailResend")}> Resend Verification Email </button>
                         <br />
                     </div>
                 )
@@ -64,7 +61,7 @@ class Start extends Component {
     render() {
         return (
             <div>
-                <h1>React LoginRadius Demo</h1>
+                <h1>Loginradius React Demo</h1>
                 {this.toRenderHandler()}
             </div>
         );

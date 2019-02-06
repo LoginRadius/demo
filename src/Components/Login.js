@@ -1,23 +1,16 @@
-/**
- * Created by Eric on 5/26/17.
- */
 import React, {Component} from 'react';
 import {getLoginObject} from '../utils/getLoginObject';
 import {handleError} from '../utils/handleError';
 import SocialLogin from './SocialLogin.js'
 
-
-
 var changeState; // need a global variable to access it in JS
-var firstName; // needed to assign a first name to the user
-
 
 class Login extends Component {
     constructor(props) {
         super(props);
         // props:
-        //-- action: App.js uses this to check if Login was clicked
-        //-- isLoggedIn: App.js uses this to check if it needs to render LoggedIn page
+        //-- action: function to determine what state the app is in based on click event.
+        //-- handler: function to execute when login attempt is successful.
         this.state = {
             email: "",
             password: "",
@@ -26,19 +19,23 @@ class Login extends Component {
 
     }
 
-
     componentDidMount() {
         let LoginObject = getLoginObject();
         let login_options = {};
+
         login_options.container = 'login-container';
         login_options.onSuccess = function (response) {
-            console.log(response);
+          console.log(response);
+          if (response.access_token) {
             changeState();
+          }
         };
+        
         login_options.onError = function (errors) {
             console.log(errors);
             alert(handleError(errors));
         };
+        
         LoginObject.init('login', login_options);
     };
 

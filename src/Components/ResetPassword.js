@@ -1,6 +1,3 @@
-/**
- * Created by Eric on 5/29/17.
- */
 import React, {Component} from 'react';
 import {getLoginObject} from '../utils/getLoginObject';
 import {handleError} from '../utils/handleError';
@@ -9,11 +6,6 @@ import {handleError} from '../utils/handleError';
 let goBack; // Initialized to go back to the home page after success change
 
 class ResetPassword extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-
     componentDidMount() {
         let LRObject = getLoginObject();
 

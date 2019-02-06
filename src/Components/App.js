@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Start from './Start.js';
 import {getLoginObject} from '../utils/getLoginObject.js';
-import ResetPassword from "./ResetPassword.js";
-import LoggedIn from "./LoggedIn";
+import ResetPassword from './ResetPassword.js';
+import LoggedIn from './LoggedIn';
+import config from '../utils/config.json';
 
 // Email Verification needs to occur here because there is only one HTML page
 
@@ -76,7 +77,8 @@ class App extends Component {
     }
 
     handleBack() {
-        this.setState({pageState: "Home"})
+        // homeURL in config.json holds the appropriate port where the server is listening on:
+        window.location.assign(config.homeURL);
     }
 
 

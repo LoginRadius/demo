@@ -1,17 +1,9 @@
-/**
- * Created by Eric on 5/29/17.
- *//**
- * Created by Eric on 5/29/17.
- */
 import React, {Component} from 'react';
 import {getLoginObject} from '../../utils/getLoginObject.js';
 import {handleError} from '../../utils/handleError';
 
 
 class RemoveEmail extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         let LRObject = getLoginObject();
