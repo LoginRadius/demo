@@ -1,0 +1,32 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "LogoutIntent",
+        "samples": [
+          "log me out",
+          "logout",
+          "unlink",
+          "remove",
+          "expire",
+          "invalidate",
+          "delete"
+        ],
+        "slots": []
+      }
+    ],
+    "invocationName": "loginradius"
+  }
+}
