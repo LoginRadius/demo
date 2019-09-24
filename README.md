@@ -2,7 +2,7 @@ alexa-skills-kit-sdk-for-nodejs
 ======
 ----------
 
-Note: This branch is specifically for the Alexa demousing the original V1 release of the Alexa Skills Kit SDK for NodeJS.
+Note: This branch is specifically for the Alexa demo using the original V1 release of the Alexa Skills Kit SDK for NodeJS.
 
 It is compatible with the LoginRadius API V2.
 
