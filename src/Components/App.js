@@ -1,111 +1,65 @@
-import React, {Component} from 'react';
-import Start from './Start.js';
-import {getLoginObject} from '../utils/getLoginObject.js';
-import ResetPassword from './ResetPassword.js';
-import LoggedIn from './LoggedIn';
-import config from '../utils/config.json';
+import React from 'react';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import Login from "../Components/Login";
+import Start from "./Start";
+import EmailResend from './EmailResend';
+import ForgotPassword from './ForgotPassword';
+import Register from './Register';
+import Home from './Home';
 
-// Email Verification needs to occur here because there is only one HTML page
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = this._defaultState
+  }
 
+  // Initial state
+  _defaultState = {
+    isLoggedIn: false,
+    profile: undefined
+  }
 
-let emailVerify; // global variable to check for email verification in home page
-let handleReset;
+  /**
+   * This handler is called on login success.
+   * It accepts the user profile as an argument fetched with the login method.
+   */
+  _onLogin = (profile) => {
+    this.setState({
+      isLoggedIn: true,
+      profile: {
+        uid: profile.Uid,
+        name: profile.FullName
+      }
+    }, () => this.props.history.push("/home"))
+  }
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            pageState: "notLogged",
-        };
+  /**
+   * This handler removed the fetched user data by resetting the state
+   */
+  _onLogout = () => {
+    this.setState(this._defaultState, () => this.props.history.push("/start"))
+  }
 
-        this.handleEmailVerify = this.handleEmailVerify.bind(this);
-        this.handleLoggedIn = this.handleLoggedIn.bind(this);
-        this.handleBack = this.handleBack.bind(this);
-        this.handleResetPassword = this.handleResetPassword.bind(this);
-    }
+  render() {
 
+    const { isLoggedIn, profile } = this.state;
 
-    componentDidMount() {
-        let LoginObject = getLoginObject();
+    return <Switch>
+      {/* Protected Routes */}
+      <Route exact path="/home" render={() => isLoggedIn
+        ? <Home handler={this._onLogout} profile={profile} /> : <Redirect to="/login" />} />
 
-        // verify email options
-        let verifyemail_options = {};
-        verifyemail_options.onSuccess = function (response) {
-            console.log(response);
-            emailVerify();
-        };
-        verifyemail_options.onError = function (errors) {
-            console.log(errors);
-        };
+      {/* Public Routes */}
+      <Route exact path="/start" render={() => <Start handler={this._onLogout} profile={this.state.profile} />} />
+      <Route exact path="/login" render={() => <Login handler={this._onLogin} />} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/forgot-password" component={ForgotPassword} />
+      <Route exact path="/resend-verification-email" component={EmailResend} />
 
-
-        // reset password options
-        var reset_options = {};
-        reset_options.container = 'resetpassword-container';
-        reset_options.onSuccess = function (response) {
-            console.log(response);
-        };
-        reset_options.onError = function (errors) {
-            console.log(errors);
-        };
-
-
-        // checking for a reset password
-        if (window.location.href.indexOf("vtype=reset") > -1) {
-            LoginObject.init('resetPassword', reset_options);
-            handleReset();
-        }
-
-
-        // checking if the URL contains the type emailverification string, if not then dont initiate the verify email
-        if (window.location.href.indexOf("vtype=emailverification") > -1) {
-            LoginObject.init('verifyEmail', verifyemail_options);
-        }
-    }
-
-
-    handleLoggedIn() {
-        this.setState({pageState: "Logged"})
-    }
-
-    handleEmailVerify() {
-        this.setState({pageState: "Email"})
-    }
-
-    handleResetPassword() {
-        this.setState({pageState: "Reset"})
-    }
-
-    handleBack() {
-        // homeURL in config.json holds the appropriate port where the server is listening on:
-        window.location.assign(config.homeURL);
-    }
-
-
-    render() {
-        emailVerify = this.handleEmailVerify;
-        handleReset = this.handleResetPassword;
-
-        switch (this.state.pageState) {
-            case "Logged":
-                return (<LoggedIn handleBack={this.handleBack} />);
-            case "Email":
-                return (
-                    <div>
-                        <h1>Email Verified!</h1>
-                        <button onClick={this.handleBack}> Back</button>
-                    </div>);
-            case "Home":
-                return (<Start handler={this.handleLoggedIn}/>);
-            case "Reset":
-                return (<div><h1>Reset Your Password!</h1><ResetPassword handler={this.handleBack} /></div>);
-            default:
-                return (<Start handler={this.handleLoggedIn}/>)
-        }
-
-
-    }
+      {/* Default Route */}
+      <Redirect to="/start" />
+    </Switch>
+  }
 }
 
-
-export default App;
+export default withRouter(App);

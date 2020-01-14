@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import {getLoginObject} from '../../utils/getLoginObject.js';
-import {handleError} from '../../utils/handleError';
+import React, { Component } from 'react';
+import LRObject from '../../utils/getLoginObject.js';
+import { handleError } from '../../utils/handleError';
+import { withRouter } from 'react-router-dom';
 
 
 class RemoveEmail extends Component {
 
     componentDidMount() {
-        let LRObject = getLoginObject();
-        var remove_email_options = {};
+        let remove_email_options = {};
         remove_email_options.container = 'removeemail-container';
+
         remove_email_options.onSuccess = function (response) {
             console.log(response);
             alert("Successfully Removed")
@@ -18,6 +19,7 @@ class RemoveEmail extends Component {
             alert(handleError(errors));
 
         };
+
         LRObject.init('removeEmail', remove_email_options);
     }
 
@@ -27,10 +29,10 @@ class RemoveEmail extends Component {
             <div>
                 <h3> Remove An Email </h3>
                 <div id="removeemail-container"></div>
-                <button onClick={this.props.action}> Back</button>
+                <button onClick={this.props.history.goBack}> Back</button>
             </div>
         )
     }
 }
 
-export default RemoveEmail
+export default withRouter(RemoveEmail)
