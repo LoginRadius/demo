@@ -1,74 +1,27 @@
-import React, {Component} from 'react';
-import Register from './Register.js';
-import Login from './Login.js';
-import ForgotPassword from './ForgotPassword.js'
-import EmailResend from './EmailResend.js'
-
-
-
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Start extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            current: ""
-        };
-
-        this.toRenderHandler = this.toRenderHandler.bind(this);
-        this.handleEventClick = this.handleEventClick.bind(this);
-    }
-
-    handleEventClick(event) {
-        this.state.current === event ? this.setState({current: ""}) : this.setState({current: event})
-    }
-
-
-    toRenderHandler() {
-        switch (this.state.current) {
-            case "Login":
-                return (
-                    <Login handler={this.props.handler} action={this.handleEventClick}/>
-                );
-            case "Register":
-                return (
-                    <Register action={this.handleEventClick}/>
-                );
-            case "ForgotPassword":
-                return (
-                    <ForgotPassword action={this.handleEventClick}/>
-                );
-            case "EmailResend":
-                return (
-                    <EmailResend action = {this.handleEventClick} />
-                );
-            default:
-                return (
-                    <div>
-                        <button onClick={() => this.handleEventClick("Login")}> Login</button>
-                        <br />
-                        <button onClick={() => this.handleEventClick("Register")}> Register</button>
-                        <br />
-                        <button onClick={() => this.handleEventClick("ForgotPassword")}> Forgot Password? </button>
-                        <br />
-                        <button onClick={() => this.handleEventClick("EmailResend")}> Resend Verification Email </button>
-                        <br />
-                    </div>
-                )
-
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Loginradius React Demo</h1>
-                {this.toRenderHandler()}
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <h1>LoginRadius React Demo</h1>
+        <div>
+          <button onClick={() => this.props.history.push("/login")}> Login</button>
+          <br />
+          <button onClick={() => this.props.history.push("/register")}> Register</button>
+          <br />
+          <button onClick={() => this.props.history.push("/forgot-password")}> Forgot Password? </button>
+          <br />
+          <button onClick={() => this.props.history.push("/resend-verification-email")}> Resend Verification Email </button>
+          <br />
+        </div>
+      </div>
+    )
+  }
 
 
 }
 
 
-export default Start;
+export default withRouter(Start);

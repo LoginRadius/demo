@@ -5,7 +5,8 @@
   "dependencies": {
     "little-loader": "^0.2.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",

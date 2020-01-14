@@ -1,56 +1,39 @@
-import React, {Component} from 'react';
-import {getLoginObject} from '../utils/getLoginObject';
-import {handleError} from '../utils/handleError';
+import React, { Component } from 'react';
+import LRObject from '../utils/getLoginObject';
+import { formatErrorMessage } from '../utils/handleError';
 import SocialLogin from './SocialLogin.js'
-
-var changeState; // need a global variable to access it in JS
+import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
-        // props:
-        //-- action: function to determine what state the app is in based on click event.
-        //-- handler: function to execute when login attempt is successful.
-        this.state = {
-            email: "",
-            password: "",
-            data: ""
-        };
+  componentDidMount() {
+    let login_options = {};
 
-    }
-
-    componentDidMount() {
-        let LoginObject = getLoginObject();
-        let login_options = {};
-
-        login_options.container = 'login-container';
-        login_options.onSuccess = function (response) {
-          console.log(response);
-          if (response.access_token) {
-            changeState();
-          }
-        };
-        
-        login_options.onError = function (errors) {
-            console.log(errors);
-            alert(handleError(errors));
-        };
-        
-        LoginObject.init('login', login_options);
+    login_options.container = 'login-container';
+    login_options.onSuccess = (response) => {
+      if (response.access_token) {
+        this.props.handler(response.Profile);
+      }
     };
 
+    login_options.onError = (errors) => {
+      console.log(errors);
+      alert(formatErrorMessage(errors));
+    };
 
-    render() {
-        changeState = this.props.handler; // associating the global variable with the prop
-        return (
-            <div>
-                <h3> Login </h3>
-                <div id="login-container"></div>
-                <SocialLogin handler={this.props.handler}/>
-                <button onClick={this.props.action}> Back</button>
-            </div>
-        )
-    }
+    LRObject.init('login', login_options);
+  };
+
+
+  render() {
+    return (
+      <div>
+        <h3> Login </h3>
+        <div id="login-container"></div>
+        <SocialLogin onLoginSuccess={this.props.handler} />
+        <button style={{ marginTop: "2em" }} onClick={this.props.history.goBack}> Back</button>
+      </div>
+    )
+  }
 }
 
-export default Login;
+export default withRouter(Login);
