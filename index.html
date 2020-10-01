@@ -7,14 +7,51 @@
 		<!-- LoginRadius -->
 		<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 	</head>
-	<body>
-		<a href="registration.html" class="btn btn-lg">registration</a>
-		<a href="login.html" class="btn btn-lg">login</a>
-		<a href="social.html" class="btn btn-lg">social</a>
-		<a href="email-verification.html" class="btn btn-lg">email</a>
-		<a href="forgot-password.html" class="btn btn-lg">forgot</a>
-		<a href="reset-password.html" class="btn btn-lg">reset</a>
 
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 100%;
+			height: 100vh;
+			background: url('https://www.scalevp.com/sites/default/files/designbig.jpg') center center; 
+		}
+		a{
+			text-transform: uppercase;
+		}
+		.btn{
+			margin-top: 5vh;
+			margin-right: 10px;
+		}
+		.buttons{
+			display: grid;
+			justify-content: center;
+			margin-right: 10px;
+		}
+		h1{
+			color:#7B5D67;
+			font-size: 50px;
+			font-weight: 900;
+			text-align: center;
+			margin-top: 15vh;
+		}
+		</style>
+	<body>
+
+
+		<div class="container">
+			<h1>Welcome to Hacktober</h1>
+			<div class="buttons">
+			<a href="registration.html" class="btn btn-lg btn-primary">registration</a>
+			<a href="login.html" class="btn btn-lg btn-primary">login</a>
+			<a href="social.html" class="btn btn-lg btn-primary">social</a>
+			<a href="email-verification.html" class="btn btn-lg btn-primary">email</a>
+			<a href="forgot-password.html" class="btn btn-lg btn-primary">forgot</a>
+			<a href="reset-password.html" class="btn btn-lg btn-primary">reset</a>
+		</div>
+		</div>
 	</body>
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 </html>
