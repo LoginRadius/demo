@@ -7,10 +7,53 @@
 		<!-- LoginRadius -->
 		<script src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"></script>
 	</head>
+
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 100%;
+			height: 100vh;
+			background: url('https://www.scalevp.com/sites/default/files/designbig.jpg') center center; 
+		}
+		a{
+			text-transform: uppercase;
+		}
+		.btn{
+			margin-top: 5vh;
+			margin-right: 10px;
+		}
+		
+		h1{
+			color:#7B5D67;
+			font-size: 50px;
+			font-weight: 900;
+			text-align: center;
+			margin-top: 15vh;
+			margin-bottom: 50px;
+		}
+
+		input{
+			text-align: center;
+			justify-content: center;
+			padding: 20px;
+			margin-bottom: 20px;
+			text-decoration: none;
+		}
+		</style>
 	<body>
 		<div class="container">
-			<h3><a href="index.html">Home Page</a></h3>
-			<div id="login-container"></div>
+
+			<h3><a class="btn btn-primary" href="index.html">Home Page</a></h3>
+			<h1>Registration Form</h1>
+			<div id="login-container" style="display: grid;margin-left: 50vh; margin-right: 50vh;">
+				<input type="text" placeholder="Enter the name" required>
+				<input type="password" placeholder="Enter the password" required>
+				<input type="text" placeholder="Mobile number" required>
+				<button type="submit" class="btn btn-success">Submit</button>
+			</div>
 		</div>
 	</body>
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
